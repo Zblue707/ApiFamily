@@ -15,7 +15,7 @@ import { filter } from 'rxjs';
 })
 export class App {
   private readonly router = inject(Router);
-  protected readonly title = signal('PadillaDominguez');
+  protected readonly title = signal('MendozaMartinez');
   protected readonly currentUrl = signal(this.router.url);
   protected readonly mostrarLayout = computed(
     () => this.currentUrl() !== '/inicio-sesion' && this.currentUrl() !== '/login',

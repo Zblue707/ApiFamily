@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "PadillaDominguez": {
+    "MendozaMartinez": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -65,16 +65,19 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "PadillaDominguez:build:production"
+              "buildTarget": "MendozaMartinez:build:production"
             },
             "development": {
-              "buildTarget": "PadillaDominguez:build:development"
+              "buildTarget": "MendozaMartinez:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
