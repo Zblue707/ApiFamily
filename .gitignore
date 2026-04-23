@@ -38,6 +38,10 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
+_apifamilia_unzip/
+_apifamilia2_unzip/
+**/.m2/
+**/target/
 
 # System files
 .DS_Store
