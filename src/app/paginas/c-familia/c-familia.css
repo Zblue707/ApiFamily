@@ -1,0 +1,82 @@
+.hero-familia {
+  background: linear-gradient(135deg, #eef7fc 0%, #ffffff 100%);
+  border: 1px solid #d9eaf5;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+}
+
+.etiqueta {
+  color: #0f4c81;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.titulo-familia {
+  color: #0a3558;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+}
+
+.descripcion {
+  color: #567185;
+  max-width: 42rem;
+}
+
+.sesion-card {
+  background: white;
+  border: 1px solid #d9eaf5;
+  border-radius: 1rem;
+  color: #23425b;
+  min-width: 250px;
+  padding: 0.9rem 1rem;
+}
+
+.tarjeta-persona {
+  background: white;
+  border: 1px solid #e1edf5;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(15, 76, 129, 0.08);
+}
+
+.foto-persona {
+  border-radius: 0.9rem;
+  display: block;
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.contenido-persona {
+  padding: 1.25rem;
+}
+
+.parentesco {
+  background-color: #d7eef8;
+  color: #0f4c81;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+}
+
+.nombre-persona {
+  color: #0a3558;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.detalle-grid dt {
+  color: #5d7385;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.detalle-grid dd {
+  color: #183247;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}

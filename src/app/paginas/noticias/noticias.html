@@ -1,0 +1,41 @@
+<div class="row">
+
+  @for (noticia of noticias; track noticia.id) {
+
+    <div class="col-md-4 mb-4">
+
+      <div class="shadow-lg rounded-4 overflow-hidden h-100 bg-white">
+
+        <img
+          src="https://via.placeholder.com/400x200"
+          class="w-100"
+          style="height:200px; object-fit:cover;"
+          alt="Imagen noticia"
+        >
+
+        <div class="p-4 d-flex flex-column h-100">
+
+          <h5 class="fw-bold text-primary">
+            {{ noticia.titulo }}
+          </h5>
+
+          <p class="text-dark flex-grow-1">
+            {{ noticia.descripcion }}
+          </p>
+
+          <a
+            [routerLink]="['/noticia', noticia.id]"
+            class="btn btn-outline-primary mt-3"
+          >
+            Ver más →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

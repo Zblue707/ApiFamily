@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h2 class="text-center fw-bold mb-5 text-primary">
+    Acerca de
+  </h2>
+
+  <div class="row">
+
+    @for (item of info; track item.id) {
+
+      <div class="col-md-6 mb-4">
+
+        <div class="p-4 shadow rounded-4 h-100 bg-light border-start border-5 border-primary">
+
+    
+          <h5 class="fw-bold text-primary">
+            {{ item.titulo }}
+          </h5>
+
+  
+          <hr class="border-primary">
+
+        
+          <p class="text-dark mb-0">
+            {{ item.descripcion }}
+          </p>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+</div>
+

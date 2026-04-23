@@ -1,0 +1,23 @@
+<section class="pantalla-login">
+  <div class="fondo-decorativo fondo-uno"></div>
+  <div class="fondo-decorativo fondo-dos"></div>
+
+  <div class="contenedor-login">
+    <p class="etiqueta">Acceso privado</p>
+    <h1>Inicio de sesion</h1>
+    <p class="descripcion">
+      Ingresa con tu cuenta de Gmail para ver la pagina principal y consultar los integrantes de
+      la familia.
+    </p>
+
+    <button class="btn btn-warning btn-lg fw-semibold px-4" type="button" (click)="iniciarSesion()">
+      Continuar con Google
+    </button>
+
+    <p class="texto-ayuda mb-0">
+      Despues del acceso se abrira automaticamente la pagina principal.
+    </p>
+
+    <p class="estado" *ngIf="cargando">Comprobando si ya existe una sesion activa...</p>
+  </div>
+</section>

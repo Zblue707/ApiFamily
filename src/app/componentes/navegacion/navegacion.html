@@ -1,0 +1,58 @@
+<div class="barra-nav px-3 py-2">
+  <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+    <ul class="nav justify-content-center align-items-center gap-2">
+      <li class="nav-item">
+        <a class="nav-link p-0" routerLink="/">
+          <div class="logo-circulo">FM</div>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/familia" routerLinkActive="activo">
+          Familia
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/noticias" routerLinkActive="activo">
+          Noticias
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/acercade" routerLinkActive="activo">
+          Acerca de
+        </a>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center gap-3" *ngIf="usuario()">
+      <img
+        *ngIf="usuario()?.fotoUrl; else avatarFallback"
+        [src]="usuario()?.fotoUrl || ''"
+        [alt]="usuario()?.nombre || 'Usuario'"
+        class="avatar"
+      >
+
+      <ng-template #avatarFallback>
+        <div class="avatar avatar-texto">{{ iniciales() || 'FM' }}</div>
+      </ng-template>
+
+      <div class="text-white text-end">
+        <div class="fw-semibold">{{ usuario()?.nombre }}</div>
+        <small class="opacity-75">{{ usuario()?.email }}</small>
+      </div>
+
+      <button class="btn btn-light btn-sm fw-semibold" type="button" (click)="cerrarSesion()">
+        Cerrar sesion
+      </button>
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+

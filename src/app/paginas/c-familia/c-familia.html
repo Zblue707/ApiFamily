@@ -1,0 +1,81 @@
+<div class="container my-5">
+  <section class="hero-familia mb-4">
+    <p class="etiqueta mb-2">Listado privado</p>
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3">
+      <div>
+        <h2 class="titulo-familia mb-2">Familia Mendoza Martinez</h2>
+        <p class="descripcion mb-0">
+          Esta vista consulta el backend nuevo y muestra los integrantes asociados a tu sesion.
+        </p>
+      </div>
+
+      <div class="sesion-card" *ngIf="usuario()">
+        <div class="fw-semibold">{{ usuario()?.nombre }}</div>
+        <small>{{ usuario()?.email }}</small>
+      </div>
+    </div>
+  </section>
+
+  <div *ngIf="cargando" class="alert alert-info shadow-sm">
+    Cargando datos de familia...
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger shadow-sm">
+    {{ error }}
+  </div>
+
+  <div class="row g-4" *ngIf="!cargando && usuario() && familia.length > 0">
+    <div class="col-md-6 col-xl-4" *ngFor="let persona of familia">
+      <article class="tarjeta-persona h-100">
+        <div class="contenido-persona">
+          <span class="badge parentesco" *ngIf="persona.parentesco">{{ persona.parentesco }}</span>
+          <h3 class="nombre-persona">{{ persona.nombre }} {{ persona.apellido }}</h3>
+
+          <div class="mb-3">
+            <img
+              [src]="persona.foto || 'https://placehold.co/600x360/e8f3fb/0f4c81?text=Familia'"
+              [alt]="persona.nombre + ' ' + persona.apellido"
+              class="foto-persona"
+            >
+          </div>
+
+          <dl class="detalle-grid mb-0">
+            <div>
+              <dt>Fecha de nacimiento</dt>
+              <dd>{{ persona.fechaNacimiento | date: 'longDate' }}</dd>
+            </div>
+
+            <div>
+              <dt>Correo</dt>
+              <dd>{{ persona.correo || 'No registrado' }}</dd>
+            </div>
+
+            <div>
+              <dt>Telefono</dt>
+              <dd>{{ persona.telefono || 'No registrado' }}</dd>
+            </div>
+
+            <div>
+              <dt>Sexo</dt>
+              <dd>{{ persona.sexo || 'No definido' }}</dd>
+            </div>
+
+            <div>
+              <dt>Nacionalidad</dt>
+              <dd>{{ persona.nacionalidad || 'No registrada' }}</dd>
+            </div>
+
+            <div>
+              <dt>Direccion</dt>
+              <dd>{{ persona.direccion || 'No registrada' }}</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div *ngIf="!cargando && usuario() && familia.length === 0 && !error" class="alert alert-secondary shadow-sm">
+    No hay integrantes registrados todavia en la base de datos.
+  </div>
+</div>

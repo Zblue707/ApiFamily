@@ -1,0 +1,41 @@
+<div class="container mt-5" *ngIf="noticia">
+
+  <div class="shadow-lg rounded-4 overflow-hidden">
+
+   
+    <img 
+      src="https://via.placeholder.com/800x400"
+      class="w-100"
+      alt="Imagen noticia"
+      style="height:400px; object-fit:cover;"
+    >
+
+   
+    <div class="bg-primary text-white p-4">
+
+      <h2 class="fw-bold mb-0">
+        {{ noticia.titulo }}
+      </h2>
+
+    </div>
+
+   
+    <div class="p-4 bg-light">
+
+      <p class="text-dark fs-5">
+        {{ noticia.descripcion }}
+      </p>
+
+      <a routerLink="/noticias" 
+         class="btn btn-primary mt-3">
+
+         ← Volver
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+

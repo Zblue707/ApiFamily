@@ -1,0 +1,45 @@
+.barra-nav {
+  background: linear-gradient(135deg, #0f4c81 0%, #1877b8 55%, #34a0c9 100%);
+  box-shadow: 0 10px 30px rgba(11, 52, 84, 0.18);
+}
+
+.nav-link {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.activo {
+  background-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.logo-circulo,
+.avatar {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.logo-circulo {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.avatar {
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  object-fit: cover;
+}
+
+.avatar-texto {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  font-weight: 700;
+}
