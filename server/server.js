@@ -5,8 +5,6 @@ const PORT = process.env.PORT || 3000;
 const ALLOWED_ORIGINS = [
   'https://ute-5a-proyecto1.netlify.app',
   'https://ute-5a-proyecto1.netlify.app/',
-  'https://apifamily-production.up.railway.app',
-  'https://zblue707.github.io',
 ];
 
 const db = {
