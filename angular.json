@@ -67,9 +67,6 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "options": {
-            "allowedHosts": ["apifamily-production.up.railway.app"]
-          },
           "configurations": {
             "production": {
               "buildTarget": "MendozaMartinez:build:production"
