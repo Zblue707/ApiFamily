@@ -6,10 +6,10 @@
     "start": "ng serve",
     "start:api": "node server/server.js",
     "build": "ng build",
-    "build:pages": "ng build --base-href /ApiFamily/",
+    "build:pages": "ng build --output-path browser-pages --base-href /ApiFamily/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy:pages": "npx angular-cli-ghpages --dir=dist/MendozaMartinez/browser"
+    "deploy:pages": "npx angular-cli-ghpages --dir=browser-pages/browser"
   },
   "prettier": {
     "printWidth": 100,
