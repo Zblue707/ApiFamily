@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 
 import { API_BASE_URL } from './api-config';
 
@@ -14,6 +14,7 @@ export interface SesionUsuario {
   fechaRegistro?: string;
   ultimaSesion: string;
   logoutUrl?: string;
+  authMethod?: string;
 }
 
 @Injectable({
@@ -49,6 +50,33 @@ export class AuthService {
 
   iniciarSesionConGoogle(): void {
     window.location.href = `${this.apiUrl}/auth/login/google`;
+  }
+
+  iniciarSesionConCorreo(email: string, password: string): Observable<SesionUsuario> {
+    this.cargandoSesion.set(true);
+
+    return this.http
+      .post<SesionUsuario>(
+        `${this.apiUrl}/auth/login`,
+        {
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        },
+      )
+      .pipe(
+        tap((usuario) => {
+          this.usuario.set(usuario);
+          this.cargandoSesion.set(false);
+        }),
+        catchError((error) => {
+          this.usuario.set(null);
+          this.cargandoSesion.set(false);
+          return throwError(() => error);
+        }),
+      );
   }
 
   cerrarSesion(): Observable<void> {

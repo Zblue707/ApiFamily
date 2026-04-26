@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { API_BASE_URL } from '../../servicios/api-config';
 import { AuthService } from '../../servicios/auth';
 import { Integrante, ServFamilia } from '../../servicios/familia';
 
@@ -22,6 +23,11 @@ export class CFamilia implements OnInit {
   readonly usuario = this.authService.usuario;
 
   ngOnInit(): void {
+    if (this.usuario()) {
+      this.cargarFamilia();
+      return;
+    }
+
     this.authService.verificarSesion().subscribe({
       next: (usuario) => {
         if (!usuario) {
@@ -54,7 +60,7 @@ export class CFamilia implements OnInit {
       error: () => {
         this.cargando = false;
         this.error =
-          'No fue posible cargar los integrantes. Revisa que el backend Spring este corriendo en http://localhost:8080.';
+          `No fue posible cargar los integrantes. Revisa que el backend Spring este corriendo en ${API_BASE_URL}.`;
       },
     });
   }

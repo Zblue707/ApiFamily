@@ -6,13 +6,49 @@
     <p class="etiqueta">Acceso privado</p>
     <h1>Inicio de sesion</h1>
     <p class="descripcion">
-      Ingresa con tu cuenta de Gmail para ver la pagina principal y consultar los integrantes de
-      la familia.
+      Ingresa con correo y contrasena o usa tu cuenta de Google para ver la pagina principal y
+      consultar los integrantes de la familia.
     </p>
 
-    <button class="btn btn-warning btn-lg fw-semibold px-4" type="button" (click)="iniciarSesion()">
+    <form class="formulario-login text-start" (ngSubmit)="iniciarSesionConCorreo()">
+      <label class="campo-label" for="correo">Correo</label>
+      <input
+        id="correo"
+        class="campo-input"
+        type="email"
+        name="correo"
+        [(ngModel)]="correo"
+        autocomplete="email"
+        placeholder="tu@correo.com"
+      >
+
+      <label class="campo-label" for="contrasena">Contrasena</label>
+      <input
+        id="contrasena"
+        class="campo-input"
+        type="password"
+        name="contrasena"
+        [(ngModel)]="contrasena"
+        autocomplete="current-password"
+        placeholder="Escribe tu contrasena"
+      >
+
+      <button class="btn btn-light btn-lg fw-semibold w-100" type="submit" [disabled]="enviando || cargando">
+        {{ enviando ? 'Entrando...' : 'Entrar con correo' }}
+      </button>
+    </form>
+
+    <div class="divisor">
+      <span>o</span>
+    </div>
+
+    <button class="btn btn-warning btn-lg fw-semibold w-100" type="button" (click)="iniciarSesion()">
       Continuar con Google
     </button>
+
+    <div class="alert alert-warning mt-3 mb-0 text-start" *ngIf="error">
+      {{ error }}
+    </div>
 
     <p class="texto-ayuda mb-0">
       Despues del acceso se abrira automaticamente la pagina principal.
