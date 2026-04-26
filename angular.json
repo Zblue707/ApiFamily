@@ -68,7 +68,12 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "allowedHosts": ["apifamily-production.up.railway.app"]
+            "allowedHosts": [
+              "apifamily-production.up.railway.app",
+              "localhost",
+              "127.0.0.1"
+            ],
+            "historyApiFallback": true
           },
           "configurations": {
             "production": {
